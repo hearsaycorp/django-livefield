@@ -1,0 +1,12 @@
+[MESSAGES CONTROL]
+# Errors only.
+disable=all
+enable=E
+
+[REPORTS]
+# Don't display the complete report.
+reports=no
+
+[TYPECHECK]
+# Dynamically-set members missed by the inference system.
+# generated-members=index,canonical_name,display_name,is_valid,cleaned_data,objects
