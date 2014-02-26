@@ -30,6 +30,10 @@ Example Usage
     ...    class Meta:
     ...        unique_together = ('name', 'live')
     ...
+    ...    def delete(self):
+    ...        self.live = False
+    ...        self.save()
+    ...
     >>> john = Person.objects.create(name='John Cleese')
     >>> doppelganger = Person(name='John Cleese')
     >>> doppelganger.save()  # Raises an IntegrityError

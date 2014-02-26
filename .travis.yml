@@ -3,11 +3,15 @@ python:
   - "2.6"
   - "2.7"
 env:
-  - DJANGO_VERSION=1.6
+  - DJANGO_VERSION=1.6 DJANGO_DB_ENGINE=sqlite
+  - DJANGO_VERSION=1.6 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
+  - DJANGO_VERSION=1.6 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
 install:
-  - "pip install -q Django==$DJANGO_VERSION --use-mirrors"
+  - "pip install -q Django==$DJANGO_VERSION MySQL-python psycopg2 --use-mirrors"
   - "pip install -q flake8 pylint --use-mirrors"
   - "pip install -e . --use-mirrors"
 before_script:
+  - "mysql -e 'create database testdb;'"
+  - "psql -c 'create database testdb;' -U postgres"
   - "./lint.sh"
 script: "python setup.py test"
