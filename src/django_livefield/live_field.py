@@ -34,7 +34,7 @@ class LiveField(models.Field):
     def get_prep_lookup(self, lookup_type, value):
         if lookup_type == 'exact' and not value:
             msg = ("%(model)s doesn't support filters or excludes with %(field)s=False. "
-                "Try using %(field)s=None.")
+                   "Try using %(field)s=None.")
             raise TypeError(msg % {'model': self.model.__name__, 'field': self.name})
 
         return super(LiveField, self).get_prep_lookup(lookup_type, value)
