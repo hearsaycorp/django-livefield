@@ -79,7 +79,7 @@ setup(
     url='https://github.com/hearsaycorp/django-livefield',
     author='Hearsay Social',
     author_email='opensource@hearsaysocial.com',
-    license='Other/Proprietary License',
+    license='MIT',
     package_dir={'': 'src'},
     packages=find_packages('src'),
     install_requires=install_requires,
