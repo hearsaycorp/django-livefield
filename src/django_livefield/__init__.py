@@ -1,12 +1,20 @@
-from .live_field import LiveField  # noqa
-from .live_manager import LiveManager  # noqa
-from .live_queryset import LiveQuerySet  # noqa
+from .fields import LiveField  # noqa
+from .managers import LiveManager, LiveGeoManager  # noqa
+from .querysets import LiveQuerySet, LiveGeoQuerySet  # noqa
+from .models import LiveModel, LiveGeoModel
 
 
 __all__ = (
+    # Standard Django
     'LiveField',
     'LiveManager',
     'LiveQuerySet',
+    'LiveModel',
+    # GeoDjango
+    'LiveGeoField',
+    'LiveGeoManager',
+    'LiveGeoQuerySet',
+    'LiveGeoModel',
 )
 
 

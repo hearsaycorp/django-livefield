@@ -1,7 +1,8 @@
 from django.db import models
+from django.db.models import NullBooleanField
 
 
-class LiveField(models.Field):
+class LiveField(NullBooleanField):
     """Support uniqueness constraints and soft-deletion.
 
     Similar to a BooleanField, but stores False as NULL. This lets us use
@@ -15,10 +16,6 @@ class LiveField(models.Field):
 
     def __init__(self):
         super(LiveField, self).__init__(default=True, null=True)
-
-    def get_internal_type(self):
-        # Create DB table as though for a NullBooleanField.
-        return 'NullBooleanField'
 
     def get_prep_value(self, value):
         # Convert in-Python value to value we'll store in DB
@@ -38,3 +35,11 @@ class LiveField(models.Field):
             raise TypeError(msg % {'model': self.model.__name__, 'field': self.name})
 
         return super(LiveField, self).get_prep_lookup(lookup_type, value)
+
+
+# For South compatibility, add introspection rule
+try:
+    from south.modelsinspector import add_introspection_rules
+    add_introspection_rules([], ['^django_livefield.fields.LiveField'])
+except ImportError:
+    pass
