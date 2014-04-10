@@ -14,7 +14,6 @@ class Person(models.Model):
     all_objects = LiveManager(include_soft_deleted=True)
 
 
-
 class Person2(LiveModel):
     name = models.CharField(max_length=20)
 

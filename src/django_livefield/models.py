@@ -1,6 +1,5 @@
 from django.db.models import Model
 from django.contrib.gis.db.models import Model as GeoModel
-
 from .fields import LiveField
 from .managers import LiveManager, LiveGeoManager
 
