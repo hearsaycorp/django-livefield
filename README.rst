@@ -2,7 +2,7 @@
 django-livefield
 ================
 
-.. image:: https://magnum.travis-ci.com/hearsaycorp/django-livefield.png?token=pLaFnRxzmb8LMHcdgP2V
+.. image:: https://travis-ci.org/hearsaycorp/django-livefield.png
     :alt: Build Status
     :target: https://travis-ci.org/hearsaycorp/django-livefield
 
