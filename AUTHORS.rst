@@ -5,3 +5,4 @@ Contributors
 ============
 | `Adam DePue <http://github.com/adepue>`_
 | `Akshay Shah <http://github.com/akshayjshah>`_
+| `John Lynn <http://github.com/jlynn>`_
