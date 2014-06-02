@@ -2,6 +2,11 @@ from django.db import models
 
 from django_livefield import LiveField
 from django_livefield import LiveManager
+from django_livefield import LiveModel
+
+
+class Item(LiveModel):
+    pass
 
 
 class Person(models.Model):
