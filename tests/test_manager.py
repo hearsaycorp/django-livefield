@@ -42,7 +42,7 @@ class LiveManagerTests(TestCase):
     def test_dead_proxies_to_queryset(self):
         self.assertEqual(Person.all_objects.dead().count(), 2)
 
-    def test_soft_delete_proxies_to_quseryset(self):
+    def test_soft_delete_proxies_to_queryset(self):
         Person.all_objects.soft_delete()
         self.assertEqual(Person.all_objects.dead().count(), 5)
 
