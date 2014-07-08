@@ -1,7 +1,10 @@
+from __future__ import unicode_literals
+
 from django.db import models
+from django.db.models import NullBooleanField
 
 
-class LiveField(models.Field):
+class LiveField(NullBooleanField):
     """Support uniqueness constraints and soft-deletion.
 
     Similar to a BooleanField, but stores False as NULL. This lets us use
@@ -13,12 +16,8 @@ class LiveField(models.Field):
     description = 'Soft-deletion status'
     __metaclass__ = models.SubfieldBase
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         super(LiveField, self).__init__(default=True, null=True)
-
-    def get_internal_type(self):
-        # Create DB table as though for a NullBooleanField.
-        return 'NullBooleanField'
 
     def get_prep_value(self, value):
         # Convert in-Python value to value we'll store in DB
@@ -38,3 +37,12 @@ class LiveField(models.Field):
             raise TypeError(msg % {'model': self.model.__name__, 'field': self.name})
 
         return super(LiveField, self).get_prep_lookup(lookup_type, value)
+
+
+# For South compatibility, add introspection rule
+# Note that the rule has to match the app name (livefield, not django_livefield)
+try:
+    from south.modelsinspector import add_introspection_rules
+    add_introspection_rules([], ['^django_livefield.LiveField'])
+except ImportError:
+    pass
