@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 from django.db import models
 from django.db.models import NullBooleanField
 
@@ -13,7 +11,7 @@ class LiveField(NullBooleanField):
     follows the ANSI SQL standard, and works in both MySQL and Postgres).
 
     """
-    description = 'Soft-deletion status'
+    description = u'Soft-deletion status'
     # TODO: Do we need this now that we inherit from NullBooleanField?
     __metaclass__ = models.SubfieldBase
 
@@ -33,8 +31,7 @@ class LiveField(NullBooleanField):
 
     def get_prep_lookup(self, lookup_type, value):
         if lookup_type == 'exact' and not value:
-            msg = ("%(model)s doesn't support filters or excludes with %(field)s=False. "
-                   "Try using %(field)s=None.")
+            msg = u"%(model)s doesn't support filters or excludes with %(field)s=False. Try using %(field)s=None."
             raise TypeError(msg % {'model': self.model.__name__, 'field': self.name})
         return super(LiveField, self).get_prep_lookup(lookup_type, value)
 
