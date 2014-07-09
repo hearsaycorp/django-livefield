@@ -14,6 +14,7 @@ class LiveField(NullBooleanField):
 
     """
     description = 'Soft-deletion status'
+    # TODO: Do we need this now that we inherit from NullBooleanField?
     __metaclass__ = models.SubfieldBase
 
     def __init__(self, *args, **kwargs):
@@ -35,14 +36,14 @@ class LiveField(NullBooleanField):
             msg = ("%(model)s doesn't support filters or excludes with %(field)s=False. "
                    "Try using %(field)s=None.")
             raise TypeError(msg % {'model': self.model.__name__, 'field': self.name})
-
         return super(LiveField, self).get_prep_lookup(lookup_type, value)
 
 
 # For South compatibility, add introspection rule
-# Note that the rule has to match the app name (livefield, not django_livefield)
-try:
-    from south.modelsinspector import add_introspection_rules
-    add_introspection_rules([], ['^django_livefield.LiveField'])
-except ImportError:
-    pass
+# TODO: We will add this after a renaming of files / folders
+# TODO: Add tests for South integration
+# try:
+#     from south.modelsinspector import add_introspection_rules
+#     add_introspection_rules([], ['^django_livefield.LiveField'])
+# except ImportError:
+#     pass
