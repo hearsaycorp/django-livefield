@@ -22,7 +22,7 @@ Example Usage
 .. code:: python
 
     >>> from django.db import models
-    >>> from django_livefield import LiveField, LiveManager
+    >>> from livefield import LiveField, LiveManager
     >>>
     >>>
     >>> class Person(models.Model):

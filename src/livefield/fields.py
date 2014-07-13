@@ -1,8 +1,7 @@
 from django.db import models
-from django.db.models import NullBooleanField
 
 
-class LiveField(NullBooleanField):
+class LiveField(models.NullBooleanField):
     """Support uniqueness constraints and soft-deletion.
 
     Similar to a BooleanField, but stores False as NULL. This lets us use
@@ -12,7 +11,6 @@ class LiveField(NullBooleanField):
 
     """
     description = u'Soft-deletion status'
-    # TODO: Do we need this now that we inherit from NullBooleanField?
     __metaclass__ = models.SubfieldBase
 
     def __init__(self, *args, **kwargs):
@@ -36,11 +34,8 @@ class LiveField(NullBooleanField):
         return super(LiveField, self).get_prep_lookup(lookup_type, value)
 
 
-# For South compatibility, add introspection rule
-# TODO: We will add this after a renaming of files / folders
-# TODO: Add tests for South integration
-# try:
-#     from south.modelsinspector import add_introspection_rules
-#     add_introspection_rules([], ['^django_livefield.LiveField'])
-# except ImportError:
-#     pass
+try:
+    from south.modelsinspector import add_introspection_rules
+    add_introspection_rules([], ['^livefield.LiveField'])
+except ImportError:
+    pass

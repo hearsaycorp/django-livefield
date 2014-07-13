@@ -1,6 +1,13 @@
 Changelog
 =========
 
+2.0.0 (2014-07-13)
+------------------
+    - Renamed top-level namespace to ``livefield``.
+    - Restructured internally to match Django convention.
+    - Added GIS support.
+    - Added South support.
+
 1.0.0 (2014-02-14)
 ------------------
     - Initial release.
