@@ -1,8 +1,8 @@
 from django.db import models
 
-from django_livefield import LiveField
-from django_livefield import LiveManager
-from django_livefield import LiveModel
+from livefield import LiveField
+from livefield import LiveManager
+from livefield import LiveModel
 
 
 class Item(LiveModel):
