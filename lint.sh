@@ -6,7 +6,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-pylint --rcfile=pylint.rc src/django_livefield
+pylint --rcfile=pylint.rc src/livefield
 if [ $? -ne 0 ]; then
     echo "PyLing found errors in src/."
     exit 1
