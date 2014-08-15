@@ -24,7 +24,7 @@ class LiveGeoModel(GeoModel):
         self.live = False
         self.save()
 
-    def hard_delete(self):
+    def hard_delete(self):  # pylint: disable=super-on-old-class
         super(LiveGeoModel, self).delete()
 
     def undelete(self, *args, **kwargs):

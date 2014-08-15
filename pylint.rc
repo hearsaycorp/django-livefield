@@ -1,7 +1,10 @@
+[MASTER]
+load-plugins=pylint_django
+
 [MESSAGES CONTROL]
 # Errors only.
-disable=all
 enable=E
+disable=W,C,R,I,maybe-no-member
 
 [REPORTS]
 # Don't display the complete report.
