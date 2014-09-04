@@ -1,7 +1,8 @@
 from django.db import models
 
 
-class LiveField(models.NullBooleanField):
+# FIXME: Once pylint-django supports 1.7, remove this bypass.
+class LiveField(models.NullBooleanField):  # pylint: disable=no-member
     """Support uniqueness constraints and soft-deletion.
 
     Similar to a BooleanField, but stores False as NULL. This lets us use
@@ -30,7 +31,7 @@ class LiveField(models.NullBooleanField):
     def get_prep_lookup(self, lookup_type, value):
         if lookup_type == 'exact' and not value:
             msg = u"%(model)s doesn't support filters or excludes with %(field)s=False. Try using %(field)s=None."
-            raise TypeError(msg % {'model': self.model.__name__, 'field': self.name})
+            raise TypeError(msg % {'model': self.model.__name__, 'field': self.name})  # pylint: disable=no-member
         return super(LiveField, self).get_prep_lookup(lookup_type, value)
 
 
