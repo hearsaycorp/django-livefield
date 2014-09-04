@@ -61,6 +61,11 @@ class DjangoTest(TestCommand):
             CACHES={'default': {'BACKEND': 'django.core.cache.backends.dummy.DummyCache'}},
             INSTALLED_APPS=('django_nose',) + self.APPS)
 
+        import django
+        if django.VERSION[0] >= 1 and django.VERSION[1] > 6:
+            # If we're using Django >= 1.7, need to initialize apps.
+            django.setup()  # pylint: disable=no-member
+
         from django_nose import NoseTestSuiteRunner
         runner = NoseTestSuiteRunner(failfast=False, interactive=False)
         sys.exit(runner.run_tests(self.APPS))
