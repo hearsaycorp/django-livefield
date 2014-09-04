@@ -8,7 +8,7 @@ fi
 
 pylint --rcfile=pylint.rc src/livefield
 if [ $? -ne 0 ]; then
-    echo "PyLing found errors in src/."
+    echo "PyLint found errors in src/."
     exit 1
 fi
 
