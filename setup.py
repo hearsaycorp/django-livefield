@@ -16,7 +16,7 @@ tests_require = (
 
 
 install_requires = (
-    'Django>=1.6,<1.7',
+    'Django>=1.6,<1.8',
     'django-model-utils>=2.0,<3.0',
 )
 
@@ -68,7 +68,7 @@ class DjangoTest(TestCommand):
 
 setup(
     name='django-livefield',
-    version='2.0.0',
+    version='2.1.0',
     description='Convenient soft-deletion support for Django models',
     long_description=(
         open('README.rst').read() + '\n\n' +

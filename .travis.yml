@@ -6,6 +6,9 @@ env:
   - DJANGO_VERSION=1.6 DJANGO_DB_ENGINE=sqlite
   - DJANGO_VERSION=1.6 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
   - DJANGO_VERSION=1.6 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
+  - DJANGO_VERSION=1.7 DJANGO_DB_ENGINE=sqlite
+  - DJANGO_VERSION=1.7 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
+  - DJANGO_VERSION=1.7 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
 install:
   - "pip install -q Django==$DJANGO_VERSION MySQL-python psycopg2"
   - "pip install -q flake8 pylint pylint-django"
