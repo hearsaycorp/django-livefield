@@ -13,7 +13,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # FIXME: pylint-django doesn't support Django 1.7.
-if [$DJANGO_VERSION_CEILING -ne "1.8"]; then
+if [ "$DJANGO_VERSION_CEILING" != "1.8" ]; then
     pylint --rcfile=pylint.rc tests
     if [ $? -ne 0 ]; then
         echo "PyLint found errors in test/."
