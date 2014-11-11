@@ -35,7 +35,7 @@ Example Usage
     ...    class Meta:
     ...        unique_together = ('name', 'live')
     ...
-    ...    def delete(self):
+    ...    def delete(self, *args, **kwargs):
     ...        self.live = False
     ...        self.save()
     ...
