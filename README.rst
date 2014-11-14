@@ -35,9 +35,9 @@ Example Usage
     ...    class Meta:
     ...        unique_together = ('name', 'live')
     ...
-    ...    def delete(self, *args, **kwargs):
+    ...    def delete(self, using=None):
     ...        self.live = False
-    ...        self.save()
+    ...        self.save(using=using)
     ...
     >>> john = Person.objects.create(name='John Cleese')
     >>> doppelganger = Person(name='John Cleese')
