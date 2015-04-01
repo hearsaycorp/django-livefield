@@ -9,7 +9,7 @@ class LiveModel(models.Model):
 
     LiveModel overrides Model.delete() to provide soft-deletion via
     a LiveField. `.delete()` updates `Model.live` to `True`. Normal
-    deletion can performed usign `Model.hard_delete()`.
+    deletion can performed using `Model.hard_delete()`.
     """
 
     live = LiveField()
