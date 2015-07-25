@@ -25,7 +25,7 @@ class LiveFieldTests(TestCase):
         self.assertFalse(o2.live)
 
     def test_truthy_values_dont_delete(self):
-        for name, val in enumerate(['truthy', 11, 6L, True, (1, 3)]):
+        for name, val in enumerate(['truthy', 11, long(6), True, (1, 3)]):
             obj = Person(name=name)
             obj.live = val
             # Use 'is' to make sure that we're returning bools.
