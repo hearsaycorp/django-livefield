@@ -17,7 +17,7 @@ tests_require = (
 
 install_requires = (
     'Django>=1.6,<1.9',
-    'django-model-utils>=2.0,<3.0',
+    'django-model-utils>=2.0,<2.4',
 )
 
 
