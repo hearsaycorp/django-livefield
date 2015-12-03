@@ -1,8 +1,7 @@
 from django.db import models
 
 
-# FIXME: Once pylint-django supports 1.7, remove this bypass.
-class LiveField(models.NullBooleanField):  # pylint: disable=no-member
+class LiveField(models.NullBooleanField):
     """Support uniqueness constraints and soft-deletion.
 
     Similar to a BooleanField, but stores False as NULL. This lets us use
@@ -12,7 +11,6 @@ class LiveField(models.NullBooleanField):  # pylint: disable=no-member
 
     """
     description = u'Soft-deletion status'
-    __metaclass__ = models.SubfieldBase
 
     def __init__(self, *args, **kwargs):
         super(LiveField, self).__init__(default=True, null=True)
@@ -22,6 +20,9 @@ class LiveField(models.NullBooleanField):  # pylint: disable=no-member
         if value:
             return super(LiveField, self).get_prep_value(True)
         return None
+
+    def from_db_value(self, value, expression, connection, context):
+        return bool(value)
 
     def to_python(self, value):
         # Somewhat misleading name, since this type coercion also occurs when
