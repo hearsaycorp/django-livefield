@@ -28,6 +28,8 @@ class LiveFieldTests(TestCase):
         for name, val in enumerate(['truthy', 11, long(6), True, (1, 3)]):
             obj = Person(name=name)
             obj.live = val
+            obj.save()
+            obj.refresh_from_db()
             # Use 'is' to make sure that we're returning bools.
             self.assertTrue(obj.live is True)
 
@@ -35,6 +37,8 @@ class LiveFieldTests(TestCase):
         for name, val in enumerate(['', 0, False, {}, None]):
             obj = Person(name=name)
             obj.live = val
+            obj.save()
+            obj = Person.all_objects.get(id=obj.id)
             # Again, use 'is' to make sure that we're returning bools.
             self.assertTrue(obj.live is False)
 
