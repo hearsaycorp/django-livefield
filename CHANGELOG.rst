@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.4.0 (2016-02-11)
+------------------
+    - Drop support for Django 1.8
+    - add number of affected rows for delete methods (hard_delete, soft_delete, delete)
+
 2.1.0 (2014-09-04)
 ------------------
     - Add support for Django 1.7.

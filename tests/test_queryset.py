@@ -32,13 +32,16 @@ class LiveQuerySetTests(TestCase):
         self.assertEqual(Person.all_objects.all().dead().count(), 2)
 
     def test_soft_delete(self):
-        Person.all_objects.all().soft_delete()
+        deleted = Person.all_objects.all().soft_delete()
+        self.assertEqual(deleted, 5)
         self.assertEqual(Person.all_objects.all().dead().count(), 5)
 
     def test_hard_delete(self):
-        Person.all_objects.all().hard_delete()
+        deleted = Person.all_objects.all().hard_delete()
+        self.assertEqual(deleted, 5)
         self.assertEqual(Person.all_objects.all().count(), 0)
 
     def test_default_delete_is_soft(self):
-        Person.all_objects.all().delete()
+        deleted = Person.all_objects.all().delete()
+        self.assertEqual(deleted, 5)
         self.assertEqual(Person.all_objects.all().dead().count(), 5)
