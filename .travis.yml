@@ -13,8 +13,8 @@ env:
   - DJANGO_VERSION=1.9.3 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
   - DJANGO_VERSION=1.9.3 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
 install:
-  - pip install -q "Django==$DJANGO_VERSION" MySQL-python psycopg2
-  - "pip install -q flake8 pylint pylint-django django-nose"
+  - pip install "Django==$DJANGO_VERSION" MySQL-python psycopg2
+  - "pip install flake8 pylint pylint-django django-nose"
   - "pip install -e ."
 before_script:
   - "mysql -e 'create database testdb;'"
