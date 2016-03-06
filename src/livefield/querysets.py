@@ -12,7 +12,8 @@ class LiveQuerySet(models.query.QuerySet):
 
     def hard_delete(self):
         # Default Django behavior.
-        return super(LiveQuerySet, self).delete()[0]
+        result = super(LiveQuerySet, self).delete()
+        return result[0] if result else None
 
     def live(self):
         return self.filter(live=True)

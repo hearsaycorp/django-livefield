@@ -1,10 +1,15 @@
 Changelog
 =========
 
+2.5.0 (Not released)
+------------------
+    - Added official Python 3 support.
+    - Re-added support for Django 1.8. Now supports Django 1.8 and 1.9.
+
 2.4.0 (2016-02-11)
 ------------------
     - Drop support for Django 1.8
-    - add number of affected rows for delete methods (hard_delete, soft_delete, delete)
+    - Add number of affected rows for delete methods (hard_delete, soft_delete, delete). Note: Django 1.9+ only.
 
 2.1.0 (2014-09-04)
 ------------------

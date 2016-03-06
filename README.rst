@@ -2,14 +2,14 @@
 django-livefield
 ================
 
-.. image:: https://travis-ci.org/hearsaycorp/django-livefield.png
+.. image:: https://travis-ci.org/hearsaycorp/django-livefield.svg
     :alt: Build Status
     :target: https://travis-ci.org/hearsaycorp/django-livefield
 
 =====
 About
 =====
-A Django field that enables convenient soft-deletion.
+A Django field that enables convenient soft-deletion. For Python 2.7/3.3+ and Django 1.8+
 
 ============
 Installation
@@ -31,7 +31,7 @@ Example Usage
     ...
     ...    objects = LiveManager()
     ...    all_objects = LiveManager(include_soft_deleted=True)
-    ...    
+    ...
     ...    class Meta:
     ...        unique_together = ('name', 'live')
     ...

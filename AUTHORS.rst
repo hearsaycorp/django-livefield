@@ -7,4 +7,4 @@ Contributors
 | `Akshay Shah <http://github.com/akshayjshah>`_
 | `John Lynn <http://github.com/jlynn>`_
 | `Dylan Verheul <http://github.com/dyve>`_
-
+| `Grant McConnaughey <http://github.com/grantmcconnaughey>`_

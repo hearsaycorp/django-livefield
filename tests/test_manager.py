@@ -4,10 +4,7 @@ from .models import Person
 
 
 class LiveManagerTests(TestCase):
-    """These tests largely verify that django-model-utils' PassThroughManager
-    works as advertised.
 
-    """
     names = (
         'Graham Chapman',
         'John Cleese',
