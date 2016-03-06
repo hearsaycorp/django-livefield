@@ -6,12 +6,11 @@ python:
   - 3.5
 sudo: false
 env:
-  - DJANGO_VERSION=1.8.10 DJANGO_DB_ENGINE=sqlite
-  - DJANGO_VERSION=1.8.10 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
-  - DJANGO_VERSION=1.8.10 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
-  - DJANGO_VERSION=1.9.3 DJANGO_DB_ENGINE=sqlite
-  - DJANGO_VERSION=1.9.3 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
-  - DJANGO_VERSION=1.9.3 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
+  - DJANGO_VERSION=1.8.10
+  - DJANGO_VERSION=1.9.3
+  - DJANGO_DB_ENGINE=sqlite
+  - DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
+  - DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
 install:
   - pip install "Django==$DJANGO_VERSION" mysqlclient psycopg2
   - "pip install flake8 pylint pylint-django django-nose"
