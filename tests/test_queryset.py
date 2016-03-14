@@ -1,3 +1,4 @@
+import django
 from django.test import TestCase
 
 from .models import Person
@@ -38,7 +39,12 @@ class LiveQuerySetTests(TestCase):
 
     def test_hard_delete(self):
         deleted = Person.all_objects.all().hard_delete()
-        self.assertEqual(deleted, 5)
+        # Django 1.9+ returns number of deleted rows
+        if django.VERSION >= (1, 9, 0):
+            self.assertEqual(deleted, 5)
+        else:
+            # Older versions do not
+            self.assertIsNone(deleted)
         self.assertEqual(Person.all_objects.all().count(), 0)
 
     def test_default_delete_is_soft(self):

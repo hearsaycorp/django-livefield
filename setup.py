@@ -16,7 +16,7 @@ tests_require = (
 
 
 install_requires = (
-    'Django>=1.9,<1.10',
+    'Django>=1.8',
 )
 
 
@@ -61,9 +61,7 @@ class DjangoTest(TestCommand):
             INSTALLED_APPS=('django_nose',) + self.APPS)
 
         import django
-        if django.VERSION[0] >= 1 and django.VERSION[1] > 6:
-            # If we're using Django >= 1.7, need to initialize apps.
-            django.setup()  # pylint: disable=no-member
+        django.setup()  # pylint: disable=no-member
 
         from django_nose import NoseTestSuiteRunner
         runner = NoseTestSuiteRunner(failfast=False, interactive=False)
@@ -72,13 +70,24 @@ class DjangoTest(TestCommand):
 
 setup(
     name='django-livefield',
-    version='2.4.0',
+    version='2.5.0',
     description='Convenient soft-deletion support for Django models',
     long_description=(
         open('README.rst').read() + '\n\n' +
         open('CHANGELOG.rst').read() + '\n\n' +
         open('AUTHORS.rst').read()),
-    classifiers=[],
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Framework :: Django',
+        'Framework :: Django :: 1.8',
+        'Framework :: Django :: 1.9',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+    ],
     keywords='python django soft-delete',
     url='https://github.com/hearsaycorp/django-livefield',
     author='Hearsay Social',
