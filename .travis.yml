@@ -12,6 +12,9 @@ env:
   - DJANGO_VERSION_CEILING=1.10 DJANGO_DB_ENGINE=sqlite
   - DJANGO_VERSION_CEILING=1.10 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
   - DJANGO_VERSION_CEILING=1.10 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
+  - DJANGO_VERSION_CEILING=1.11 DJANGO_DB_ENGINE=sqlite
+  - DJANGO_VERSION_CEILING=1.11 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
+  - DJANGO_VERSION_CEILING=1.11 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
 install:
   - pip install "Django<$DJANGO_VERSION_CEILING" mysqlclient psycopg2
   - "pip install flake8 pylint pylint-django django-nose"
@@ -24,6 +27,12 @@ script:
   - "./lint.sh"
 matrix:
   exclude:
+    - python: 3.3
+      env: DJANGO_VERSION_CEILING=1.11 DJANGO_DB_ENGINE=sqlite
+    - python: 3.3
+      env: DJANGO_VERSION_CEILING=1.11 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
+    - python: 3.3
+      env: DJANGO_VERSION_CEILING=1.11 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
     - python: 3.3
       env: DJANGO_VERSION_CEILING=1.10 DJANGO_DB_ENGINE=sqlite
     - python: 3.3
