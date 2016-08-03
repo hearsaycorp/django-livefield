@@ -28,6 +28,12 @@ script:
 matrix:
   exclude:
     - python: 3.3
+      env: DJANGO_VERSION_CEILING=1.11 DJANGO_DB_ENGINE=sqlite
+    - python: 3.3
+      env: DJANGO_VERSION_CEILING=1.11 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
+    - python: 3.3
+      env: DJANGO_VERSION_CEILING=1.11 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
+    - python: 3.3
       env: DJANGO_VERSION_CEILING=1.10 DJANGO_DB_ENGINE=sqlite
     - python: 3.3
       env: DJANGO_VERSION_CEILING=1.10 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
