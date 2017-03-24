@@ -1,3 +1,4 @@
+import django
 from django.db import models
 
 
@@ -34,6 +35,19 @@ class LiveField(models.NullBooleanField):
             msg = u"%(model)s doesn't support filters or excludes with %(field)s=False. Try using %(field)s=None."
             raise TypeError(msg % {'model': self.model.__name__, 'field': self.name})  # pylint: disable=no-member
         return super(LiveField, self).get_prep_lookup(lookup_type, value)
+
+
+class LiveFieldExact(models.lookups.Exact):
+    def get_db_prep_lookup(self, value, connection):
+        if not value:
+            msg = u"LiveField doesn't support filters or excludes with a livefield=False. Try using livefield=None."
+            raise TypeError(msg)  # pylint: disable=no-member
+        return super(LiveFieldExact, self).get_db_prep_lookup(value, connection)  # pylint: disable=too-many-function-args
+
+
+# Only do this for Django >= 1.10
+if django.get_version().startswith("1.1"):
+    LiveField.register_lookup(LiveFieldExact)
 
 
 try:
