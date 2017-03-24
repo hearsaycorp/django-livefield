@@ -70,7 +70,7 @@ class DjangoTest(TestCommand):
 
 setup(
     name='django-livefield',
-    version='2.6.0',
+    version='2.7.0',
     description='Convenient soft-deletion support for Django models',
     long_description=(
         open('README.rst').read() + '\n\n' +
