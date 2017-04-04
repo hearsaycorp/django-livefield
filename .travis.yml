@@ -3,7 +3,6 @@ python:
   - 2.7
   - 3.4
   - 3.5
-  - 3.6
 sudo: false
 env:
   - DJANGO_VERSION_CEILING=1.11 DJANGO_DB_ENGINE=sqlite
@@ -22,11 +21,3 @@ before_script:
 script:
   - "python setup.py test"
   - "./lint.sh"
-matrix:
-  exclude:
-    - python: 3.6
-      env: DJANGO_VERSION_CEILING=1.11 DJANGO_DB_ENGINE=sqlite
-    - python: 3.6
-      env: DJANGO_VERSION_CEILING=1.11 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
-    - python: 3.6
-      env: DJANGO_VERSION_CEILING=1.11 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
