@@ -1,5 +1,5 @@
 from django.db import models
-from .querysets import LiveGeoQuerySet
+from ..querysets import LiveQuerySet
 
 
 class LiveGeoManagerBase(models.Manager):
@@ -17,4 +17,4 @@ class LiveGeoManagerBase(models.Manager):
         return qs
 
 
-LiveGeoManager = LiveGeoManagerBase.from_queryset(LiveGeoQuerySet)
+LiveGeoManager = LiveGeoManagerBase.from_queryset(LiveQuerySet)
