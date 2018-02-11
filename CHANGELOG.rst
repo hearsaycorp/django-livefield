@@ -1,6 +1,15 @@
 Changelog
 =========
 
+3.0.0
+------------------
+    - Add support for Python 3.6
+    - Add support for Django 2.0
+    - Remove support for Python 3.4
+    - Remove support for old Django versions
+    - Remove GIS
+
+
 2.5.0 (Not released)
 ------------------
     - Added official Python 3 support.
