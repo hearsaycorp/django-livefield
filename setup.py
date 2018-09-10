@@ -61,11 +61,9 @@ class DjangoTest(TestCommand):
             INSTALLED_APPS=('django_nose',) + self.APPS)
 
         import django
-        django.setup()  # pylint: disable=no-member
-
-        from django_nose import NoseTestSuiteRunner
-        runner = NoseTestSuiteRunner(failfast=False, interactive=False)
-        sys.exit(runner.run_tests(self.APPS))
+        import pytest
+        django.setup()
+        sys.exit(pytest.main(["tests/"]))
 
 
 setup(
