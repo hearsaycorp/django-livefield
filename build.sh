@@ -1,4 +1,4 @@
-#!/bin.sh
+#!/usr/bin/env sh
 
 # Safer to update these separately.
 pip install -U "setuptools"
