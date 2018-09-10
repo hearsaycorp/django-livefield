@@ -61,16 +61,14 @@ class DjangoTest(TestCommand):
             INSTALLED_APPS=('django_nose',) + self.APPS)
 
         import django
-        django.setup()  # pylint: disable=no-member
-
-        from django_nose import NoseTestSuiteRunner
-        runner = NoseTestSuiteRunner(failfast=False, interactive=False)
-        sys.exit(runner.run_tests(self.APPS))
+        import pytest
+        django.setup()
+        sys.exit(pytest.main(["tests/"]))
 
 
 setup(
     name='django-livefield',
-    version='3.0.0',
+    version='3.1.0',
     description='Convenient soft-deletion support for Django models',
     long_description=(
         open('README.rst').read() + '\n\n' +
