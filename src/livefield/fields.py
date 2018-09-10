@@ -22,7 +22,9 @@ class LiveField(models.NullBooleanField):
             return super(LiveField, self).get_prep_value(True)
         return None
 
-    def from_db_value(self, value, expression, connection, context):
+    def from_db_value(self, value, expression, connection, *args):
+        # context param is deprecated in Django 2.x will be removed in Django 3.x
+        # having *args allows this code to run in Django 1.x and Django 2.x
         return bool(value)
 
     def to_python(self, value):
