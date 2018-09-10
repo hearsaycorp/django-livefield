@@ -21,6 +21,12 @@ matrix:
         env: DJANGO_VERSION_CEILING=2.1 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
       - python: 3.5
         env: DJANGO_VERSION_CEILING=2.1 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
+      - python: 3.5
+        env: DJANGO_VERSION_CEILING=2.2 DJANGO_DB_ENGINE=sqlite
+      - python: 3.5
+        env: DJANGO_VERSION_CEILING=2.2 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
+      - python: 3.5
+        env: DJANGO_VERSION_CEILING=2.2 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
       - python: 3.6
         env: DJANGO_VERSION_CEILING=1.12 DJANGO_DB_ENGINE=sqlite
       - python: 3.6
@@ -33,6 +39,12 @@ matrix:
         env: DJANGO_VERSION_CEILING=2.1 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
       - python: 3.6
         env: DJANGO_VERSION_CEILING=2.1 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
+      - python: 3.6
+        env: DJANGO_VERSION_CEILING=2.2 DJANGO_DB_ENGINE=sqlite
+      - python: 3.6
+        env: DJANGO_VERSION_CEILING=2.2 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
+      - python: 3.6
+        env: DJANGO_VERSION_CEILING=2.2 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
 
 install:
   - pip install "Django<$DJANGO_VERSION_CEILING" mysqlclient psycopg2
