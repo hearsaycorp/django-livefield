@@ -23,7 +23,7 @@ class LiveModel(models.Model):
     def delete(self):
         self.soft_delete()
 
-    def hard_delete(self):  # pylint: disable=super-on-old-class
+    def hard_delete(self):
         super(LiveModel, self).delete()
 
     def soft_delete(self):
