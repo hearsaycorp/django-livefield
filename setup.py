@@ -15,7 +15,7 @@ tests_require = (
 
 
 install_requires = (
-    'Django>=1.11,<2.2',
+    'Django>=1.11,<2.3',
 )
 
 
