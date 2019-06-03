@@ -92,3 +92,6 @@ before_script:
 script:
   - "python setup.py test"
   - "./lint.sh"
+services:
+    - mysql
+    - postgresql
