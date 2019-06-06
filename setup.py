@@ -15,7 +15,7 @@ tests_require = (
 
 
 install_requires = (
-    'Django>=1.11,<2.2',
+    'Django>=1.11,<2.3',
 )
 
 
@@ -76,13 +76,15 @@ setup(
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Framework :: Django',
-        'Framework :: Django :: 1.8',
-        'Framework :: Django :: 1.9',
+        'Framework :: Django :: 1.11',
+        'Framework :: Django :: 2.1',
+        'Framework :: Django :: 2.2',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
     ],
     keywords='python django soft-delete',
     url='https://github.com/hearsaycorp/django-livefield',
