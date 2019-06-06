@@ -1,13 +1,21 @@
 Changelog
 =========
 
+3.2.0
+------------------
+    - Support Django 2.3
+    - Support Python 3.7
+    - Fix metadata to remove deprecated Django versions
+    - Expand travis tests for versions and database engines
+    - Remove obsolete pylint suppressions
+    - Thanks to [@shurph](https://github.com/shurph) for the above!
+
 3.1.0
 ------------------
     - Fix [deprecation of context param for Field.from_db_value](https://code.djangoproject.com/ticket/28370)
     - Support for Django 2.1 (Thanks [@lukeburden](https://github.com/lukeburden)
     - Switch tests suite to use pytest
     - Remove pylint-django plugin, no longer needed
-
 
 3.0.0
 ------------------
