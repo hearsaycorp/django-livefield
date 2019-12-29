@@ -8,3 +8,4 @@ Contributors
 | `John Lynn <http://github.com/jlynn>`_
 | `Dylan Verheul <http://github.com/dyve>`_
 | `Grant McConnaughey <http://github.com/grantmcconnaughey>`_
+| `Luke Burden <http://github.com/lukeburden>`_
