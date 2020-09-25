@@ -1,8 +1,13 @@
 import django
 from django.db import models
 
+if django.VERSION < (2, 1):
+    BooleanField = models.NullBooleanField
+else:
+    BooleanField = models.BooleanField
 
-class LiveField(models.BooleanField):
+
+class LiveField(BooleanField):
     """Support uniqueness constraints and soft-deletion.
 
     Similar to a BooleanField, but stores False as NULL. This lets us use
