@@ -9,3 +9,4 @@ Contributors
 | `Dylan Verheul <http://github.com/dyve>`_
 | `Grant McConnaughey <http://github.com/grantmcconnaughey>`_
 | `Luke Burden <http://github.com/lukeburden>`_
+| `James Addison <http://github.com/jaddison>`_

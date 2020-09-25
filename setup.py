@@ -67,7 +67,7 @@ class DjangoTest(TestCommand):
 
 setup(
     name='django-livefield',
-    version='3.2.1',
+    version='3.3.0',
     description='Convenient soft-deletion support for Django models',
     long_description=(
         open('README.rst').read() + '\n\n' +
@@ -79,6 +79,8 @@ setup(
         'Framework :: Django :: 1.11',
         'Framework :: Django :: 2.1',
         'Framework :: Django :: 2.2',
+        'Framework :: Django :: 3.0',
+        'Framework :: Django :: 3.1',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
