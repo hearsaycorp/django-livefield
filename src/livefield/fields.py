@@ -1,8 +1,13 @@
 import django
 from django.db import models
 
+if django.VERSION < (2, 1):
+    BooleanField = models.NullBooleanField
+else:
+    BooleanField = models.BooleanField
 
-class LiveField(models.NullBooleanField):
+
+class LiveField(BooleanField):
     """Support uniqueness constraints and soft-deletion.
 
     Similar to a BooleanField, but stores False as NULL. This lets us use
@@ -14,7 +19,7 @@ class LiveField(models.NullBooleanField):
     description = u'Soft-deletion status'
 
     def __init__(self, *args, **kwargs):
-        super(LiveField, self).__init__(default=True, null=True)
+        super(LiveField, self).__init__(default=True, null=True, blank=True)
 
     def get_prep_value(self, value):
         # Convert in-Python value to value we'll store in DB

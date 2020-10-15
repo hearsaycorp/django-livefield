@@ -1,6 +1,11 @@
 Changelog
 =========
 
+3.3.0
+--------------------
+    - Django 3.x support
+    - switch to BooleanField as base (Django 4.x deprecation)
+
 3.2.1
 --------------------
     - Fix rST formatting in this file to pass PyPI rendering check
