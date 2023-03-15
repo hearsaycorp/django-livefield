@@ -1,6 +1,10 @@
 Changelog
 =========
 
+3.4.0
+--------------------
+    - Django 4.x support
+
 3.3.0
 --------------------
     - Django 3.x support
