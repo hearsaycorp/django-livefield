@@ -110,7 +110,7 @@ matrix:
         env: DJANGO_VERSION_CEILING=4.1 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
 
 install:
-  - pip install "Django<$DJANGO_VERSION_CEILING" mysqlclient psycopg2
+  - pip install "Django~=$DJANGO_VERSION_CEILING" mysqlclient psycopg2
   - "pip install flake8 pylint pytest pytest-django"
   - "pip install -e ."
 before_script:
