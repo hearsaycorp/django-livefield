@@ -109,11 +109,11 @@ matrix:
       - python: 3.8
         env: DJANGO_VERSION_CEILING=4.1 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
       - python: 3.8
-        env: DJANGO_VERSION_CEILING=4.2b1 DJANGO_DB_ENGINE=sqlite
+        env: DJANGO_VERSION_CEILING=4.2 DJANGO_DB_ENGINE=sqlite
       - python: 3.8
-        env: DJANGO_VERSION_CEILING=4.2b1 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
+        env: DJANGO_VERSION_CEILING=4.2 DJANGO_DB_ENGINE=postgres DJANGO_DB_NAME=testdb DJANGO_DB_USER=postgres
       - python: 3.8
-        env: DJANGO_VERSION_CEILING=4.2b1 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
+        env: DJANGO_VERSION_CEILING=4.2 DJANGO_DB_ENGINE=mysql DJANGO_DB_NAME=testdb DJANGO_DB_USER=travis
 
 install:
   - pip install "Django~=$DJANGO_VERSION_CEILING" mysqlclient psycopg2
