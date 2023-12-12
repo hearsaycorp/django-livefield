@@ -2,10 +2,6 @@
 django-livefield
 ================
 
-.. image:: https://travis-ci.org/hearsaycorp/django-livefield.svg
-    :alt: Build Status
-    :target: https://travis-ci.org/hearsaycorp/django-livefield
-
 =====
 About
 =====
@@ -57,6 +53,6 @@ Pull requests welcome! To save everyone some hassle, please open an
 issue first so we can discuss your proposed change.
 
 In your PR, be sure to add your name to AUTHORS.txt and include some
-tests for your spiffy new functionality. Travis CI will green-light your
+tests for your spiffy new functionality.  CI will green-light your
 build once it passes the unit tests (``./setup.py test``) and our
 linters (``./lint.sh``).
