@@ -10,3 +10,4 @@ Contributors
 | `Grant McConnaughey <http://github.com/grantmcconnaughey>`_
 | `Luke Burden <http://github.com/lukeburden>`_
 | `James Addison <http://github.com/jaddison>`_
+| `Krisztian Csizmazia <http://github.com/csizmaziakiki>`_

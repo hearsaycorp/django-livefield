@@ -1,6 +1,13 @@
 Changelog
 =========
 
+3.4.0
+--------------------
+    - Add support for Python 3.8 - 3.11
+    - Add support for Django 4.1 and 4.2
+    - Remove support for old Django versions
+    - Remove support for old Python versions
+
 3.3.0
 --------------------
     - Django 3.x support
