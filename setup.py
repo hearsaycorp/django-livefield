@@ -15,7 +15,7 @@ tests_require = (
 
 
 install_requires = (
-    'Django>=1.11,<4',
+    'Django>=3.2,<4.3',
 )
 
 
@@ -67,7 +67,7 @@ class DjangoTest(TestCommand):
 
 setup(
     name='django-livefield',
-    version='3.3.0',
+    version='4.0.0',
     description='Convenient soft-deletion support for Django models',
     long_description=(
         open('README.rst').read() + '\n\n' +
@@ -75,18 +75,14 @@ setup(
         open('AUTHORS.rst').read()),
     classifiers=[
         'Development Status :: 5 - Production/Stable',
-        'Framework :: Django',
-        'Framework :: Django :: 1.11',
-        'Framework :: Django :: 2.1',
-        'Framework :: Django :: 2.2',
-        'Framework :: Django :: 3.0',
-        'Framework :: Django :: 3.1',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
+        'Framework :: Django :: 3.2',
+        'Framework :: Django :: 4.0',
+        'Framework :: Django :: 4.1',
+        'Framework :: Django :: 4.2',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
     ],
     keywords='python django soft-delete',
     url='https://github.com/hearsaycorp/django-livefield',
