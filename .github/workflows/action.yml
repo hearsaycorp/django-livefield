@@ -64,7 +64,7 @@ jobs:
             exit 0
           fi
           pip install Django==${{ matrix.django-version }} mysqlclient psycopg2
-          pip install flake8 pylint pytest pytest-django
+          pip install flake8 pylint pytest pytest-django setuptools
           pip install -e .
           python setup.py test
           ./lint.sh
