@@ -1,7 +1,12 @@
 Changelog
 =========
 
-3.4.0
+4.1.0
+--------------------
+    - Add support for Python 3.12
+    - Add support for Django 5.0
+
+4.0.0
 --------------------
     - Add support for Python 3.8 - 3.11
     - Add support for Django 4.1 and 4.2
