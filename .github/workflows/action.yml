@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.8', '3.9', '3.10', '3.11']
-        django-version: ['3.2', '4.0', '4.1', '4.2']
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+        django-version: ['3.2', '4.0', '4.1', '4.2', '5.0']
     services:
       postgres:
         image: postgres:12
@@ -50,15 +50,27 @@ jobs:
       - name: Test versions Python ${{ matrix.python-version }} Django ${{ matrix.django-version }}
         shell: bash
         run: |
-          if [[ "${{ matrix.python-version }}" == "3.11" && "${{ matrix.django-version }}" == "3.2" ]]; then
+          if [[ "${{ matrix.python-version }}" == "3.8" && "${{ matrix.django-version }}" == "5.0" ]]; then
             echo "Skipping unsupported Python/Django combination"
             exit 0
-          elif [[ "${{ matrix.python-version }}" == "3.11" && "${{ matrix.django-version }}" == "4.0" ]]; then
+          elif [[ "${{ matrix.python-version }}" == "3.9" && "${{ matrix.django-version }}" == "5.0" ]]; then
+            echo "Skipping unsupported Python/Django combination"
+            exit 0
+          elif [[ "${{ matrix.python-version }}" == "3.11" && ( "${{ matrix.django-version }}" == "3.2" || "${{ matrix.django-version }}" == "4.0" ) ]]; then
+            echo "Skipping unsupported Python/Django combination"
+            exit 0
+          elif [[ "${{ matrix.python-version }}" == "3.12" && ( "${{ matrix.django-version }}" == "3.2" || "${{ matrix.django-version }}" == "4.0" || "${{ matrix.django-version }}" == "4.1" ) ]]; then
             echo "Skipping unsupported Python/Django combination"
             exit 0
           fi
+
           pip install Django==${{ matrix.django-version }} mysqlclient psycopg2
           pip install flake8 pylint pytest pytest-django
+
+          if [[ "${{ matrix.python-version }}" == "3.12" ]]; then
+            pip install setuptools
+          fi
+
           pip install -e .
           python setup.py test
           ./lint.sh
