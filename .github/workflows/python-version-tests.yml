@@ -1,0 +1,70 @@
+name: Python Version Tests
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+        django-version: ['3.2', '4.0', '4.1', '4.2', '5.0']
+    services:
+      postgres:
+        image: postgres:12
+        ports:
+        - 5432:5432
+        options: >-
+          --health-cmd=pg_isready
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+        env:
+          POSTGRES_DB: testdb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+      mysql:
+        image: mysql:8
+        ports:
+        - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+        env:
+          MYSQL_USER: travis
+          MYSQL_PASSWORD: travis
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_DATABASE: test_testdb
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install Poetry
+      run: |
+        make poetry
+    - name: Install dependencies
+      run: |
+        make install-build
+    - name: Pin Django version
+      run: |
+        poetry run pip install "Django==${{ matrix.django-version }}"
+    - name: Lint with flake8 and pylint
+      run: |
+        make lint
+    - name: Test with custom bootstrap runner
+      run: |
+        make test
