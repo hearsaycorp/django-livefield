@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "django-livefield"
+version = "4.2.0"
+description = "Convenient soft-deletion support for Django models"
+authors = ["Hearsay Social <opensource@hearsaysocial.com>"]
+license = "MIT"
+readme = "README.md"
+keywords = ["python", "django", "soft-delete"]
+packages = [
+    { include = "livefield", from = "src" }
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12"
+]
+
+[tool.poetry.urls]
+"Github Repo" = "https://github.com/hearsaycorp/django-livefield"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4.0"
+Django = ">=3.2,<5.1"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "*"
+pylint = "*"
+pytest = "*"
+pytest-django = "*"
+
+[build-system]
+requires = ["poetry-core>=1.1.0"]
+build-backend = "poetry.core.masonry.api"
