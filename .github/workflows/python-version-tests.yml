@@ -58,7 +58,7 @@ jobs:
         make poetry
     - name: Install dependencies
       run: |
-        make install-build
+        make install-dev
     - name: Pin Django version
       run: |
         poetry run pip install "Django==${{ matrix.django-version }}"
