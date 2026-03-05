@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django-livefield"
-version = "4.2.0"
+version = "4.3.0"
 description = "Convenient soft-deletion support for Django models"
 authors = ["Hearsay Social <opensource@hearsaysocial.com>"]
 license = "MIT"
