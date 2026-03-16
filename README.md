@@ -2,7 +2,7 @@
 
 ## About
 
-A Django field that enables convenient soft-deletion. For Python 3.8+ and Django 3.2+
+A Django field that enables convenient soft-deletion. For Python 3.11+ and Django 4.2+
 
 ## Installation
 

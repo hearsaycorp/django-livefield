@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+- Add support for Python 3.14
+- Add support for Django 5.2
+- Drop support for Python versions below 3.11
+- Drop support for Django versions below 4.2
+
 ## 4.2.0
 - Migrate to Poetry for building and publishing
 
