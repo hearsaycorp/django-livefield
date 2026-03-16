@@ -4,7 +4,7 @@ version = "4.2.0"
 description = "Convenient soft-deletion support for Django models"
 authors = ["Hearsay Social <opensource@hearsaysocial.com>"]
 license = "MIT"
-readme = "README.md"
+readme = ["README.md", "CHANGELOG.md"]
 keywords = ["python", "django", "soft-delete"]
 packages = [
     { include = "livefield", from = "src" }
