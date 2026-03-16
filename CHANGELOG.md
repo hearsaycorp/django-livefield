@@ -1,6 +1,9 @@
 # Changelog
 
-## Unreleased
+## 4.3.1
+- Fix Changelog message
+
+## 4.3.0
 - Add support for Python 3.14
 - Add support for Django 5.2
 - Drop support for Python versions below 3.11
