@@ -27,6 +27,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = ">=3.11,<4.0"
 Django = ">=4.2,<5.3"
+sqlparse = ">=0.6.0"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "*"
